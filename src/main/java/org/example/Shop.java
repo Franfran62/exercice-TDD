@@ -8,11 +8,11 @@ import java.util.List;
 public class Shop {
     private List<Product> products;
 
-    public Shop(List<Product> products) {
-        this.products = products;
+    public Shop() {
     }
 
-    public void update(Product product) throws NotImplementedException {
-        throw new NotImplementedException("Not implemented yet");
+    public void update(Product product) {
+        product.setQuality(product.getQuality() - 1);
+        product.setSellIn(product.getSellIn() - 1);
     }
 }
