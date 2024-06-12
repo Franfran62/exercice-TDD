@@ -32,4 +32,22 @@ public class RechercheVilleTest {
             Assert.fail(" Exception pas attendue");
         }
     }
+
+    @Test
+    public void rechercher_insensible_a_la_casse() {
+        // arrange
+        RechercheVille rechercheVille = new RechercheVille();
+        String mot = "Va";
+        // act
+        try {
+            List<String> result = rechercheVille.rechercher(mot);
+            List<String> expected = rechercheVille.rechercher(mot.toUpperCase());
+            // assert
+            Assert.assertEquals(expected, result);
+        } catch (Exception e) {
+            Assert.fail(" Exception pas attendue");
+        }
+
+
+    }
 }
