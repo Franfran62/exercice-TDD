@@ -55,4 +55,12 @@ public class ShopTest {
         shop.update(product);
         Assert.assertTrue(product.getQuality() >= 0);
     }
+
+    public void quality_is_never_more_than_50() {
+        int expected = 50;
+        product.setQuality(55);
+        int result = product.getQuality();
+        shop.update(product);
+        Assert.assertEquals(result, expected);
+    }
 }
