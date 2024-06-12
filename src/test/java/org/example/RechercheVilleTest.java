@@ -26,7 +26,7 @@ public class RechercheVilleTest {
             List<String> villes = rechercheVille.rechercher(mot);
             // assert
             for (String ville : villes) {
-                Assert.assertTrue(ville.startsWith("va"));
+                Assert.assertTrue(ville.startsWith(mot));
             }
         } catch (Exception e) {
             Assert.fail(" Exception pas attendue");
