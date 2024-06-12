@@ -26,6 +26,6 @@ public class Product {
     }
 
     public void setQuality(int quality) {
-        this.quality = quality;
+        this.quality = Math.max(quality, 0);
     }
 }
