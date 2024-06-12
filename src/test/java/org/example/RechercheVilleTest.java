@@ -48,7 +48,22 @@ public class RechercheVilleTest {
         } catch (Exception e) {
             Assert.fail(" Exception pas attendue");
         }
+    }
 
-
+    @Test
+    public void rechercher_contains_notOnly_startWith() {
+        // arrange
+        RechercheVille rechercheVille = new RechercheVille();
+        String mot = "uda";
+        // act
+        try {
+            List<String> villes = rechercheVille.rechercher(mot);
+            // assert
+            for (String ville : villes) {
+                Assert.assertTrue(ville.toLowerCase().contains(mot.toLowerCase()));
+            }
+        } catch (Exception e) {
+            Assert.fail(" Exception pas attendue");
+        }
     }
 }
