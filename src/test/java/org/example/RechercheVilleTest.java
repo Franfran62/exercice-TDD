@@ -15,4 +15,21 @@ public class RechercheVilleTest {
         // act & assert
         Assert.assertThrows(NotFoundException.class, () -> rechercheVille.rechercher("a"));
     }
+
+    @Test
+    public void when_recherche_contains_2_characters_then_return_good_list() {
+        // arrange
+        RechercheVille rechercheVille = new RechercheVille();
+        String mot = "Va";
+        // act
+        try {
+            List<String> villes = rechercheVille.rechercher(mot);
+            // assert
+            for (String ville : villes) {
+                Assert.assertTrue(ville.startsWith("va"));
+            }
+        } catch (Exception e) {
+            Assert.fail(" Exception pas attendue");
+        }
+    }
 }
