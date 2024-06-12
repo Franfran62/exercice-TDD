@@ -38,10 +38,11 @@ public class RechercheVilleTest {
         // arrange
         RechercheVille rechercheVille = new RechercheVille();
         String mot = "Va";
+        String mot2 = mot.toUpperCase();
         // act
         try {
+            List<String> expected = rechercheVille.rechercher(mot2);
             List<String> result = rechercheVille.rechercher(mot);
-            List<String> expected = rechercheVille.rechercher(mot.toUpperCase());
             // assert
             Assert.assertEquals(expected, result);
         } catch (Exception e) {

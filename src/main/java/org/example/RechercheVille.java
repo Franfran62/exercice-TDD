@@ -32,11 +32,14 @@ public class RechercheVille {
         if (mot.length() < 2) {
             throw new NotFoundException("Le mot doit contenir plus de 2 caractères");
         }
-        this.initRessources();
+        if( villes.isEmpty()) {
+            this.initRessources();
+        }
         List<String> response = new ArrayList<>();
 
         for (String ville : villes) {
-            if (ville.startsWith(mot)) {
+            String villeLower = ville.toLowerCase();
+            if (villeLower.startsWith(mot.toLowerCase())) {
                 response.add(ville);
             }
         }
