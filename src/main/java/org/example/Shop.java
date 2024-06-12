@@ -4,6 +4,7 @@ import org.example.entite.Product;
 import org.example.exception.NotImplementedException;
 
 import java.util.List;
+import java.util.Objects;
 
 public class Shop {
     private List<Product> products;
@@ -17,7 +18,12 @@ public class Shop {
             return;
         }
         product.setSellIn(product.getSellIn() - 1);
-        product.setQuality(product.getQuality() - 1);
+
+        if (!Objects.equals(product.getName(), "brie vieilli")) {
+            product.setQuality(product.getQuality() - 1);
+            return;
+        }
+        product.setQuality(product.getQuality() + 1);
 
     }
 }
