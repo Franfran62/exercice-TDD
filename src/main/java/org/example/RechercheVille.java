@@ -5,6 +5,7 @@ import org.example.exception.NotFoundException;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class RechercheVille {
     private List<String> villes = new ArrayList<>();
@@ -29,14 +30,17 @@ public class RechercheVille {
     }
 
     public List<String> rechercher(String mot) throws NotFoundException {
+        if (Objects.equals(mot, "*")) {
+            return villes;
+        }
         if (mot.length() < 2) {
             throw new NotFoundException("Le mot doit contenir plus de 2 caractères");
         }
         if( villes.isEmpty()) {
             this.initRessources();
         }
-        List<String> response = new ArrayList<>();
 
+        List<String> response = new ArrayList<>();
         for (String ville : villes) {
             String villeLower = ville.toLowerCase();
             if (villeLower.contains(mot.toLowerCase())) {
@@ -50,6 +54,7 @@ public class RechercheVille {
         return response;
     }
 
-    public void getVilles() {
+    public List<String> getVilles() {
+        return villes;
     }
 }

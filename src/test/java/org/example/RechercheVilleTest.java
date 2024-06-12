@@ -71,7 +71,7 @@ public class RechercheVilleTest {
    public void when_asterisque_then_asterisque() {
         // arrange
         RechercheVille rechercheVille = new RechercheVille();
-        Integer expected = rechercheVille.getVilles().size();
+        int expected = rechercheVille.getVilles().size();
         String mot = "*";
 
         // act
