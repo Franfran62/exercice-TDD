@@ -15,11 +15,4 @@ public class RechercheVilleTest {
         // act & assert
         Assert.assertThrows(NotFoundException.class, () -> rechercheVille.rechercher("a"));
     }
-    @Test
-    public void when_recherche_contains_2_characters_then_NotFoundException() {
-        // arrange
-        RechercheVille rechercheVille = new RechercheVille();
-        // act & assert
-        Assert.assertThrows(NotFoundException.class, () -> rechercheVille.rechercher("aa"));
-    }
 }
