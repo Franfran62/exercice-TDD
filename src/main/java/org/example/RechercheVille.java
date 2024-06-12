@@ -39,10 +39,14 @@ public class RechercheVille {
 
         for (String ville : villes) {
             String villeLower = ville.toLowerCase();
-            if (villeLower.startsWith(mot.toLowerCase())) {
+            if (villeLower.contains(mot.toLowerCase())) {
                 response.add(ville);
             }
         }
+        if (response.isEmpty()) {
+            throw new NotFoundException("Aucune ville trouvée");
+        }
+
         return response;
     }
 }
