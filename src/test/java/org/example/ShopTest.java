@@ -40,4 +40,12 @@ public class ShopTest {
         shop.update(product);
         Assert.assertTrue(product.getSellIn() < qualityBeforeUpdate);
     }
+
+    @Test
+    public void when_sellInO_then_quality_decrement_faster() {
+        product.setSellIn(0);
+        int qualityBeforeUpdate = product.getQuality();
+        shop.update(product);
+        Assert.assertTrue(product.getQuality() == qualityBeforeUpdate - 2);
+    }
 }
