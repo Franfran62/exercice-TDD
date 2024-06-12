@@ -68,9 +68,18 @@ public class ShopTest {
     @Test
     public void quality_brieVielli_augmente_in_time() {
         this.product.setName("brie vieilli");
-        this.product.setType("fromage");
+        this.product.setType("laitier");
         int qualityBeforeUpdate = product.getQuality();
         shop.update(product);
         Assert.assertTrue(product.getQuality() > qualityBeforeUpdate);
+    }
+
+    @Test
+    public void produit_laitier_quality_decrement_double() {
+        this.product.setName("lait");
+        this.product.setType("laitier");
+        int qualityBeforeUpdate = product.getQuality();
+        shop.update(product);
+        Assert.assertEquals(product.getQuality(), qualityBeforeUpdate - 2);
     }
 }
