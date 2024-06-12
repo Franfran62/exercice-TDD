@@ -1,9 +1,11 @@
 package org.example;
 
 import org.example.entite.Product;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 
 import java.util.ArrayList;
@@ -11,21 +13,29 @@ import java.util.List;
 
 public class ShopTest {
 
-
-    @BeforeEach
+    private Product product = null;
+    private Shop shop = null ;
+    @Before
     public void setUp() {
-        Product product = new Product("Normal", "product", 10, 20);
-        Shop shop = new Shop();
+       this.product = new Product("Normal", "product", 10, 20);
+       this.shop = new Shop();
     }
+
+    @After
+    public void tearDown() {
+        product = null;
+        shop = null;
+    }
+
     @Test
-    public void if_update_decrement_sellIn(Product product, Shop shop) {
+    public void if_update_decrement_sellIn() {
         int sellInBeforeUpdate = product.getSellIn();
         shop.update(product);
         Assert.assertTrue(product.getSellIn() < sellInBeforeUpdate);
     }
 
     @Test
-    public void if_update_decrement_sellIn(Product product, Shop shop) {
+    public void if_update_decrement_quality() {
         int qualityBeforeUpdate = product.getQuality();
         shop.update(product);
         Assert.assertTrue(product.getSellIn() < qualityBeforeUpdate);
