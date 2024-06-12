@@ -48,4 +48,11 @@ public class ShopTest {
         shop.update(product);
         Assert.assertTrue(product.getQuality() == qualityBeforeUpdate - 2);
     }
+
+    @Test
+    public void quality_never_negative() {
+        product.setQuality(0);
+        shop.update(product);
+        Assert.assertTrue(product.getQuality() >= 0);
+    }
 }
