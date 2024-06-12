@@ -49,4 +49,7 @@ public class RechercheVille {
 
         return response;
     }
+
+    public void getVilles() {
+    }
 }

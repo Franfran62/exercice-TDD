@@ -66,4 +66,21 @@ public class RechercheVilleTest {
             Assert.fail(" Exception pas attendue");
         }
     }
+
+   @Test
+   public void when_asterisque_then_asterisque() {
+        // arrange
+        RechercheVille rechercheVille = new RechercheVille();
+        Integer expected = rechercheVille.getVilles().size();
+        String mot = "*";
+
+        // act
+        try {
+            List<String> result = rechercheVille.rechercher(mot);
+            // assert
+            Assert.assertEquals(expected, result.size());
+        } catch (Exception e) {
+            Assert.fail(" Exception pas attendue");
+        }
+    }
 }
