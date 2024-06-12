@@ -26,6 +26,6 @@ public class Product {
     }
 
     public void setQuality(int quality) {
-        this.quality = Math.max(quality, 0);
+        this.quality =  quality > 50 ? 50 : Math.max(quality, 0);
     }
 }
