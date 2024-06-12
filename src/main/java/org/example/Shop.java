@@ -12,7 +12,12 @@ public class Shop {
     }
 
     public void update(Product product) {
-        product.setQuality(product.getQuality() - 1);
+        if (product.getSellIn() == 0) {
+            product.setQuality(product.getQuality() - 2);
+            return;
+        }
         product.setSellIn(product.getSellIn() - 1);
+        product.setQuality(product.getQuality() - 1);
+
     }
 }
