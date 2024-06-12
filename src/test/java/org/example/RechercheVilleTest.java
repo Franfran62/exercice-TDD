@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.exception.NotFoundException;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -12,13 +13,13 @@ public class RechercheVilleTest {
         // arrange
         RechercheVille rechercheVille = new RechercheVille();
         // act & assert
-        Assert.assertThrows(ClassNotFoundException.class, () -> rechercheVille.rechercher("a"));
+        Assert.assertThrows(NotFoundException.class, () -> rechercheVille.rechercher("a"));
     }
     @Test
     public void when_recherche_contains_2_characters_then_NotFoundException() {
         // arrange
         RechercheVille rechercheVille = new RechercheVille();
         // act & assert
-        Assert.assertThrows(ClassNotFoundException.class, () -> rechercheVille.rechercher("aa"));
+        Assert.assertThrows(NotFoundException.class, () -> rechercheVille.rechercher("aa"));
     }
 }
