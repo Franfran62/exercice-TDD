@@ -13,7 +13,7 @@ public class Shop {
     }
 
     public void update(Product product) {
-        if (product.getSellIn() == 0) {
+        if (product.getSellIn() == 0 || Objects.equals(product.getType(), "laitier")) {
             product.setQuality(product.getQuality() - 2);
             return;
         }
