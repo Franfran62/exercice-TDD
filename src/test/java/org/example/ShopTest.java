@@ -64,4 +64,13 @@ public class ShopTest {
         shop.update(product);
         Assert.assertEquals(result, expected);
     }
+
+    @Test
+    public void quality_brieVielli_augmente_in_time() {
+        this.product.setNom("brie vieilli");
+        this.product.setType("fromage");
+        int qualityBeforeUpdate = product.getQuality();
+        shop.update(product);
+        Assert.assertTrue(product.getQuality() > qualityBeforeUpdate);
+    }
 }
