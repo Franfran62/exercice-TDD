@@ -56,6 +56,7 @@ public class ShopTest {
         Assert.assertTrue(product.getQuality() >= 0);
     }
 
+    @Test
     public void quality_is_never_more_than_50() {
         int expected = 50;
         product.setQuality(55);
